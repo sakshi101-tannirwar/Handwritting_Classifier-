@@ -78,9 +78,9 @@ def DataLoaderTwo(labelList,count):
             break
     return data
 
-
 def Augumentor(data,size):
-    datagen = ImageDataGenerator(width_shift_range = 0.2, height_shift_range = 0.2, shear_range = 0.2, zoom_range = 0.0, vertical_flip = False,horizontal_flip = False, fill_mode = 'reflect')
+    datagen = ImageDataGenerator(width_shift_range = 0.2, height_shift_range = 0.2, shear_range = 0.2,
+    zoom_range = 0.0, vertical_flip = False,horizontal_flip = False, fill_mode = 'reflect')
     count = 0
     for i in tqdm(range(len(data))):
         image = data[i][0]
@@ -93,10 +93,7 @@ def Augumentor(data,size):
                 break
             j += 1
         count += 1
-        # if count>=10:
-        #     break
         
-
 def AugumentedDataLoader():
     aug_data = list()
     aug_path = os.path.join(data_root_path, 'Augumented')
